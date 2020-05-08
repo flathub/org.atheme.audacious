@@ -36,10 +36,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious
-        tag: audacious-4.0.2
-        commit: 04b39edd5f14949d8f1ba98640b75635e43a8f9a
-      - type: patch
-        path: appdata.patch
+        tag: audacious-4.0.3
+        commit: ce9da30275cfdc5c9150373cbd82a39f0938d859
 
   - name: audacious-plugins
     buildsystem: meson
@@ -54,8 +52,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious-plugins
-        tag: audacious-plugins-4.0.2
-        commit: ad9c6631ee6009a325d0e96a87a7b68b19be6c9f
+        tag: audacious-plugins-4.0.3
+        commit: 0bedf119144bce8f89d1fd1074a5395b505be315
 
     modules:
       - name: libnotify
@@ -111,9 +109,11 @@ modules:
             sha256: 9206d83b8d2f7e1ec259ee01e943071de67e419aabe142b51312f8edb39c5503
 
       - name: sidplayfp
+        config-opts:
+          - --disable-static
         sources:
           - type: archive
-            url: https://sourceforge.net/projects/sidplay-residfp/files/libsidplayfp/2.0/libsidplayfp-2.0.2.tar.gz
+            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.0/libsidplayfp-2.0.2.tar.gz
             sha256: c3611cb71a4b98819d25c45272d11b0f9379f65a334291c0120af508d4401cb1
 
       - name: modplug
