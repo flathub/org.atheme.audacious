@@ -62,6 +62,7 @@ modules:
         buildsystem: meson
         config-opts:
           - -D=man=false
+          - -D=gtk_doc=false
         sources:
           - type: archive
             url: https://ftp.acc.umu.se/pub/GNOME/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
