@@ -23,7 +23,6 @@ cleanup:
   - /lib/pkgconfig
   - /share/doc
   - /share/gir-1.0
-  - /share/gtk-doc
   - /share/info
   - /share/man
 modules:
