@@ -2,15 +2,6 @@ id: org.atheme.audacious
 runtime: org.kde.Platform
 runtime-version: '5.14'
 sdk: org.kde.Sdk
-add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    directory: lib/ffmpeg
-    add-ld-path: "."
-    version: "19.08"
-    autodownload: true
-    autodelete: false
-cleanup-commands:
-  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 command: audacious
 finish-args:
   - --device=dri
@@ -198,3 +189,58 @@ modules:
                 commands:
                   - autoreconf --install
                 dest-filename: autogen.sh
+
+  # Bundle FFmpeg until #1033 will be fixed. Should safe to use with sane
+  # configuration for Audacious.
+  # * https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1033
+  - name: ffmpeg
+    config-opts:
+      - --disable-doc
+      - --disable-encoders
+      - --disable-muxers
+      - --disable-nonfree
+      - --disable-programs
+      - --disable-static
+      - --disable-stripping
+      - --enable-shared
+
+      # Disable video codecs
+      - --disable-decoder=ass
+      - --disable-decoder=cinepak
+      - --disable-decoder=ffv1
+      - --disable-decoder=flv
+      - --disable-decoder=h263
+      - --disable-decoder=h264
+      - --disable-decoder=hevc
+      - --disable-decoder=indeo2
+      - --disable-decoder=indeo3
+      - --disable-decoder=indeo4
+      - --disable-decoder=indeo5
+      - --disable-decoder=libaom_av1
+      - --disable-decoder=libdav1d
+      - --disable-decoder=libopenh264
+      - --disable-decoder=libvpx_vp8
+      - --disable-decoder=libvpx_vp9
+      - --disable-decoder=mpeg2video
+      - --disable-decoder=mpeg4
+      - --disable-decoder=msmpeg4
+      - --disable-decoder=msmpeg4v1
+      - --disable-decoder=msmpeg4v2
+      - --disable-decoder=msmpeg4v3
+      - --disable-decoder=rawvideo
+      - --disable-decoder=theora
+      - --disable-decoder=vp6
+      - --disable-decoder=vp6a
+      - --disable-decoder=vp6f
+      - --disable-decoder=vp8
+      - --disable-decoder=vp9
+      - --disable-decoder=wmv1
+      - --disable-decoder=wmv2
+      - --disable-decoder=wmv3
+      - --disable-decoder=wmv3image
+    sources:
+      - type: archive
+        url: https://www.ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz
+        sha256: cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c
+    cleanup:
+      - /share/ffmpeg
