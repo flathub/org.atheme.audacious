@@ -37,6 +37,8 @@ modules:
         url: https://github.com/audacious-media-player/audacious
         tag: audacious-4.0.5
         commit: f2359456253d34f54c54756bcac2146975086423
+      - type: patch
+        path: appdata.patch
 
   - name: audacious-plugins
     buildsystem: meson
