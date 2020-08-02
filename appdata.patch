@@ -1,6 +1,6 @@
 --- a/contrib/audacious.appdata.xml	2020-07-10 22:37:14.000000000 +0300
-+++ b/contrib/audacious.appdata.xml	2020-08-02 19:22:33.476356416 +0300
-@@ -23,9 +23,25 @@
++++ b/contrib/audacious.appdata.xml	2020-08-02 19:44:45.441108375 +0300
+@@ -23,9 +23,24 @@
      </p>
    </description>
    <url type="homepage">https://audacious-media-player.org</url>
