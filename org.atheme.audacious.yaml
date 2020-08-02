@@ -31,14 +31,12 @@ modules:
       - --with-buildstamp=Flathub package
       # - --enable-gtk
     post-install:
-      - install -D -m 644 contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - install -D -m644 contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious
-        tag: audacious-4.0.4
-        commit: 8ff4c4de7353a49af0bcce52520e145eb6fed78e
-      - type: patch
-        path: appdata.patch
+        tag: audacious-4.0.5
+        commit: f2359456253d34f54c54756bcac2146975086423
 
   - name: audacious-plugins
     buildsystem: meson
@@ -53,8 +51,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious-plugins
-        tag: audacious-plugins-4.0.4
-        commit: cb070443424cb40646e2090c59183585dc3c8485
+        tag: audacious-plugins-4.0.5
+        commit: f456ea04cde09724cfed9fc3a25b872ebcce95fd
 
     modules:
       - name: libnotify
@@ -74,8 +72,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/notroj/neon
-            tag: 0.31.1
-            commit: f70610d024c116e0b7c2b5c933991d742aa26fe0
+            tag: 0.31.2
+            commit: a103e89dbee535eafe40324133149f314c0f77a8
           - type: patch
             path: remove-hardcoded-install-paths.patch
 
@@ -109,8 +107,8 @@ modules:
           - -DLIB_SUFFIX=
         sources:
           - type: archive
-            url: https://github.com/FluidSynth/fluidsynth/archive/v2.1.2.tar.gz
-            sha256: 9206d83b8d2f7e1ec259ee01e943071de67e419aabe142b51312f8edb39c5503
+            url: https://github.com/FluidSynth/fluidsynth/archive/v2.1.4.tar.gz
+            sha256: 6e4f3e4a957d03812765bd0e400f61cd6c9fdb4bf10970e5cdaea8487d54b250
 
       - name: sidplayfp
         config-opts:
@@ -135,8 +133,8 @@ modules:
           - --without-portaudiocpp
         sources:
           - type: archive
-            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.4.12+release.autotools.tar.gz
-            sha256: 0ccd64476e6c8a084277e7093c4034d702e7999eeffd31adc89b33685e725e60
+            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.4.14+release.autotools.tar.gz
+            sha256: 5f6b745464a39140d828cd40e6830fcdc8d2eed18c7a990f5f942993a5441981
 
       - name: cdio
         config-opts:
@@ -168,8 +166,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/adplug/adplug
-            tag: adplug-2.3.2
-            commit: ff89e67636dd4cbb1afbb95eb516171bef10b361
+            tag: adplug-2.3.3
+            commit: 37f287dc9d81cd6aaab61f48da5cacc0ab39130e
           - type: script
             commands:
               - autoreconf --install
@@ -240,7 +238,7 @@ modules:
       - --disable-decoder=wmv3image
     sources:
       - type: archive
-        url: https://www.ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz
-        sha256: cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c
+        url: https://www.ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz
+        sha256: ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb
     cleanup:
       - /share/ffmpeg
