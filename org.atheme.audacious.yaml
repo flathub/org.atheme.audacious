@@ -1,7 +1,16 @@
 id: org.atheme.audacious
 runtime: org.kde.Platform
-runtime-version: '5.14'
+runtime-version: '5.15'
 sdk: org.kde.Sdk
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    add-ld-path: "."
+    autodelete: false
+    autodownload: true
+    directory: lib/ffmpeg
+    version: "20.08"
+cleanup-commands:
+  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 command: audacious
 finish-args:
   - --device=dri
@@ -117,8 +126,8 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.0/libsidplayfp-2.0.2.tar.gz
-            sha256: c3611cb71a4b98819d25c45272d11b0f9379f65a334291c0120af508d4401cb1
+            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.0/libsidplayfp-2.0.4.tar.gz
+            sha256: 1fd66ac1178fe39e6a562b4d35cb592236096fcb349f21c58216565b3f330635
 
       - name: modplug
         config-opts:
@@ -189,58 +198,3 @@ modules:
                 commands:
                   - autoreconf --install
                 dest-filename: autogen.sh
-
-  # Bundle FFmpeg until #1033 will be fixed. Should safe to use with sane
-  # configuration for Audacious.
-  # * https://gitlab.com/freedesktop-sdk/freedesktop-sdk/-/issues/1033
-  - name: ffmpeg
-    config-opts:
-      - --disable-doc
-      - --disable-encoders
-      - --disable-muxers
-      - --disable-nonfree
-      - --disable-programs
-      - --disable-static
-      - --disable-stripping
-      - --enable-shared
-
-      # Disable video codecs
-      - --disable-decoder=ass
-      - --disable-decoder=cinepak
-      - --disable-decoder=ffv1
-      - --disable-decoder=flv
-      - --disable-decoder=h263
-      - --disable-decoder=h264
-      - --disable-decoder=hevc
-      - --disable-decoder=indeo2
-      - --disable-decoder=indeo3
-      - --disable-decoder=indeo4
-      - --disable-decoder=indeo5
-      - --disable-decoder=libaom_av1
-      - --disable-decoder=libdav1d
-      - --disable-decoder=libopenh264
-      - --disable-decoder=libvpx_vp8
-      - --disable-decoder=libvpx_vp9
-      - --disable-decoder=mpeg2video
-      - --disable-decoder=mpeg4
-      - --disable-decoder=msmpeg4
-      - --disable-decoder=msmpeg4v1
-      - --disable-decoder=msmpeg4v2
-      - --disable-decoder=msmpeg4v3
-      - --disable-decoder=rawvideo
-      - --disable-decoder=theora
-      - --disable-decoder=vp6
-      - --disable-decoder=vp6a
-      - --disable-decoder=vp6f
-      - --disable-decoder=vp8
-      - --disable-decoder=vp9
-      - --disable-decoder=wmv1
-      - --disable-decoder=wmv2
-      - --disable-decoder=wmv3
-      - --disable-decoder=wmv3image
-    sources:
-      - type: archive
-        url: https://www.ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz
-        sha256: ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb
-    cleanup:
-      - /share/ffmpeg
