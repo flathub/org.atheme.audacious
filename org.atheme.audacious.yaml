@@ -126,8 +126,8 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.0/libsidplayfp-2.0.2.tar.gz
-            sha256: c3611cb71a4b98819d25c45272d11b0f9379f65a334291c0120af508d4401cb1
+            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.0/libsidplayfp-2.0.4.tar.gz
+            sha256: 1fd66ac1178fe39e6a562b4d35cb592236096fcb349f21c58216565b3f330635
 
       - name: modplug
         config-opts:
