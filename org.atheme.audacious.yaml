@@ -9,6 +9,20 @@ add-extensions:
     autodownload: true
     directory: lib/ffmpeg
     version: "20.08"
+
+  org.atheme.audacious.plugins:
+    directory: plugins
+    subdirectories: true
+    merge-dirs:
+      lib/audacious/Container;
+      lib/audacious/Effect;
+      lib/audacious/General;
+      lib/audacious/Input;
+      lib/audacious/Output;
+      lib/audacious/Transport;
+      lib/audacious/Visualization;
+      share/audacious/Skins
+
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 command: audacious
@@ -201,3 +215,10 @@ modules:
                 commands:
                   - autoreconf --install
                 dest-filename: autogen.sh
+
+  - name: audacious-plugins-support
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/plugins
+      - ln -sr /app/plugins/lib/audacious /app/lib/audacious
+      - ln -sr /app/plugins/share/audacious /app/share/audacious
