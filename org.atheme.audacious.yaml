@@ -47,8 +47,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious
-        tag: audacious-4.0.5
-        commit: f2359456253d34f54c54756bcac2146975086423
+        tag: audacious-4.1
+        commit: 3d0ce8bcedeaeaf6bc57995ee6f4e77c072ce4f2
       - type: patch
         path: appdata.patch
 
@@ -65,8 +65,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious-plugins
-        tag: audacious-plugins-4.0.5
-        commit: f456ea04cde09724cfed9fc3a25b872ebcce95fd
+        tag: audacious-plugins-4.1
+        commit: b7c212b8bde2f65d5cc8a78f5347f2195322ea90
 
     modules:
       - name: libnotify
