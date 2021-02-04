@@ -42,6 +42,8 @@ modules:
     buildsystem: meson
     config-opts:
       - -D=buildstamp=Flathub package
+    post-install:
+      - install -Dpm644 ../contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious
