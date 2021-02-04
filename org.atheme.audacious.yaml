@@ -105,6 +105,9 @@ modules:
           - type: git
             url: https://github.com/gypified/libfaad
             commit: 200ac175e58e5703385d6c9c104d54c9247d8a67
+          - type: shell
+            commands:
+              - cp -p /usr/share/automake-*/config.{sub,guess} .
 
       - name: cddb
         config-opts:
@@ -113,6 +116,9 @@ modules:
           - type: archive
             url: https://prdownloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
             sha256: 35ce0ee1741ea38def304ddfe84a958901413aa829698357f0bee5bb8f0a223b
+          - type: shell
+            commands:
+              - cp -p /usr/share/automake-*/config.{sub,guess} .
 
       - name: fluidsynth
         buildsystem: cmake-ninja
