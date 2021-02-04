@@ -50,6 +50,9 @@ modules:
         tag: audacious-4.1
         commit: 3d0ce8bcedeaeaf6bc57995ee6f4e77c072ce4f2
 
+    modules:
+      - shared-modules/gtk2/gtk2.json
+
   - name: audacious-plugins
     buildsystem: meson
     # config-opts:
