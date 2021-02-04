@@ -120,16 +120,16 @@ modules:
           - -DLIB_SUFFIX=
         sources:
           - type: archive
-            url: https://github.com/FluidSynth/fluidsynth/archive/v2.1.5.tar.gz
-            sha256: b539b7c65a650b56f01cd60a4e83c6125c217c5a63c0c214ef6274894a677d00
+            url: https://github.com/FluidSynth/fluidsynth/archive/v2.1.7.tar.gz
+            sha256: 365a1c0982efcaff724a7b05d26ce1db76bc7435aa4c239df61cbc87f04b6c90
 
       - name: sidplayfp
         config-opts:
           - --disable-static
         sources:
           - type: archive
-            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.0/libsidplayfp-2.0.4.tar.gz
-            sha256: 1fd66ac1178fe39e6a562b4d35cb592236096fcb349f21c58216565b3f330635
+            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.0/libsidplayfp-2.0.5.tar.gz
+            sha256: e0a70c898e318bcb915f0e73aa3559e0402588b8ed1959734e3df90267ce6d13
 
       - name: modplug
         config-opts:
@@ -146,8 +146,8 @@ modules:
           - --without-portaudiocpp
         sources:
           - type: archive
-            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.3+release.autotools.tar.gz
-            sha256: e7282a50e17d3d4c4a6d8000d409f6234f468f8113fcb33ee4ed945d9c2f25b8
+            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.5+release.autotools.tar.gz
+            sha256: f1e01483ebf1a680d9ec030c9af20f5f2a5ac0f1e0642c18bd5593cfaa9ceb6b
 
       - name: cdio
         config-opts:
@@ -155,8 +155,8 @@ modules:
           - --without-cdda-player
         sources:
           - type: archive
-            url: https://ftp.gnu.org/gnu/libcdio/libcdio-2.0.0.tar.gz
-            sha256: 1b481b5da009bea31db875805665974e2fc568e2b2afa516f4036733657cf958
+            url: https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
+            sha256: 8550e9589dbd594bfac93b81ecf129b1dc9d0d51e90f9696f1b2f9b2af32712b
 
       - name: cdio-paranoia
         config-opts:
