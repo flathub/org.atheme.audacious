@@ -55,6 +55,12 @@ modules:
 
   - name: audacious-plugins
     buildsystem: meson
+    build-options:
+      arch:
+        aarch64:
+          config-opts:
+            - -Dgl-spectrum=false
+
     # config-opts:
     #  - -D=adplug=false
     #  - -D=cdaudio=false
