@@ -46,10 +46,13 @@ modules:
       - install -Dpm644 ../contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
-        url: https://github.com/audacious-media-player/audacious
+        url: https://github.com/audacious-media-player/audacious.git
         tag: audacious-4.1
         commit: 3d0ce8bcedeaeaf6bc57995ee6f4e77c072ce4f2
-
+        x-checker-data:
+          type: git
+          url: https://github.com/audacious-media-player/audacious.git
+          tag-pattern: ^(audacious-[\d.]+)$
     modules:
       - shared-modules/gtk2/gtk2.json
 
@@ -71,9 +74,13 @@ modules:
     #  - -D=notify=false
     sources:
       - type: git
-        url: https://github.com/audacious-media-player/audacious-plugins
+        url: https://github.com/audacious-media-player/audacious-plugins.git
         tag: audacious-plugins-4.1
         commit: b7c212b8bde2f65d5cc8a78f5347f2195322ea90
+        x-checker-data:
+          type: git
+          url: https://github.com/audacious-media-player/audacious-plugins.git
+          tag-pattern: ^(audacious-plugins-[\d.]+)$
 
     modules:
       - name: libnotify
@@ -107,6 +114,11 @@ modules:
             url: https://github.com/lipnitsk/libcue
             tag: v2.2.1
             commit: 1b0f3917b8f908c81bb646ce42f29cf7c86443a1
+            x-checker-data:
+              type: json
+              url: https://api.github.com/repos/lipnitsk/libcue/releases/latest
+              tag-query: .tag_name
+              timestamp-query: .published_at
 
       - name: faad
         sources:
@@ -180,6 +192,11 @@ modules:
             url: https://github.com/rocky/libcdio-paranoia
             tag: release-10.2+2.0.1
             commit: db4dfff9e11c516ae35d87e568f511002ddae9d7
+            x-checker-data:
+              type: json
+              url: https://api.github.com/repos/rocky/libcdio-paranoia/releases/latest
+              tag-query: .tag_name
+              timestamp-query: .published_at
 
       - name: mms
         sources:
@@ -190,9 +207,15 @@ modules:
       - name: ampache_browser
         buildsystem: cmake-ninja
         sources:
-          - type: archive
-            url: https://github.com/ampache-browser/ampache_browser/archive/v1.0.3/ampache_browser-v1.0.3.tar.gz
-            sha256: aa3299fb9b1e039eab40ff7d21475db6591cc36c995b82abe98e4502c6613c35
+          - type: git
+            url: https://github.com/ampache-browser/ampache_browser.git
+            tag: v1.0.3
+            commit: 8f2d0336bcfbb8e5465ff7d6d08c46dc7ec4faee
+            x-checker-data:
+              type: json
+              url: https://api.github.com/repos/ampache-browser/ampache_browser/releases/latest
+              tag-query: .tag_name
+              timestamp-query: .published_at
 
       - name: soxr
         buildsystem: cmake-ninja
@@ -215,6 +238,11 @@ modules:
             url: https://github.com/adplug/adplug
             tag: adplug-2.3.3
             commit: 37f287dc9d81cd6aaab61f48da5cacc0ab39130e
+            x-checker-data:
+              type: json
+              url: https://api.github.com/repos/adplug/adplug/releases/latest
+              tag-query: .tag_name
+              timestamp-query: .published_at
           - type: script
             commands:
               - autoreconf --install
@@ -230,6 +258,11 @@ modules:
                 url: https://github.com/adplug/libbinio
                 tag: libbinio-1.5
                 commit: 020a4c2b7612863600428e0e9f2491b923e54ac2
+                x-checker-data:
+                  type: json
+                  url: https://api.github.com/repos/adplug/libbinio/releases/latest
+                  tag-query: .tag_name
+                  timestamp-query: .published_at
               - type: script
                 commands:
                   - autoreconf --install
