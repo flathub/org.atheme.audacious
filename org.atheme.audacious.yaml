@@ -1,14 +1,14 @@
 id: org.atheme.audacious
 runtime: org.kde.Platform
-runtime-version: '5.15'
+runtime-version: '5.15-21.08'
 sdk: org.kde.Sdk
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
-    add-ld-path: "."
+    add-ld-path: '.'
     autodelete: false
     autodownload: true
     directory: lib/ffmpeg
-    version: "20.08"
+    version: '21.08'
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 command: audacious
