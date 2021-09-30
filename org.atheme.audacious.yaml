@@ -144,19 +144,7 @@ modules:
             commands:
               - cp -p /usr/share/automake-*/config.{sub,guess} .
 
-      - name: fluidsynth
-        buildsystem: cmake-ninja
-        config-opts:
-          - -DLIB_SUFFIX=
-        sources:
-          - type: git
-            url: https://github.com/FluidSynth/fluidsynth.git
-            tag: v2.2.3
-            commit: 926581851ed1a095ef5b8659f77b38272d57e624
-            x-checker-data:
-              type: git
-              url: https://github.com/FluidSynth/fluidsynth.git
-              tag-pattern: ^(v[\d.]+)$
+      - shared-modules/linux-audio/fluidsynth2.json
 
       - name: sidplayfp
         config-opts:
