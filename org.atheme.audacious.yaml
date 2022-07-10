@@ -47,8 +47,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious.git
-        tag: audacious-4.1
-        commit: 3d0ce8bcedeaeaf6bc57995ee6f4e77c072ce4f2
+        tag: audacious-4.2
+        commit: 73a881fb59bb27f60654b63a95d8c3de73a026ae
         x-checker-data:
           type: git
           url: https://github.com/audacious-media-player/audacious.git
@@ -75,8 +75,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious-plugins.git
-        tag: audacious-plugins-4.1
-        commit: b7c212b8bde2f65d5cc8a78f5347f2195322ea90
+        tag: audacious-plugins-4.2
+        commit: 927c213260c19dad1a96f7170ea910acb79d4ad3
         x-checker-data:
           type: git
           url: https://github.com/audacious-media-player/audacious-plugins.git
@@ -100,8 +100,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/notroj/neon.git
-            tag: 0.32.1
-            commit: 0a02e288f501d65be6746cfb023f0ee8ff9869fb
+            tag: 0.32.2
+            commit: 23fbaab04d42543d9cb2528b68fac4e1bc5b46f0
             x-checker-data:
               type: git
               url: https://github.com/notroj/neon.git
