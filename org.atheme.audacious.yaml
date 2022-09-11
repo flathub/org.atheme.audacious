@@ -151,8 +151,8 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.0/libsidplayfp-2.0.5.tar.gz
-            sha256: e0a70c898e318bcb915f0e73aa3559e0402588b8ed1959734e3df90267ce6d13
+            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.3/libsidplayfp-2.3.1.tar.gz
+            sha256: aef70cc30648eb89d32f56c691a5a40cdffc7421f43b4aa242f4d123eb9258a2
 
       - name: modplug
         config-opts:
@@ -169,8 +169,8 @@ modules:
           - --without-portaudiocpp
         sources:
           - type: archive
-            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.5+release.autotools.tar.gz
-            sha256: f1e01483ebf1a680d9ec030c9af20f5f2a5ac0f1e0642c18bd5593cfaa9ceb6b
+            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.6.5+release.autotools.tar.gz
+            sha256: f22abe977cdae405f685b75150e7fb155b2c7896b4700fd54abe68840f66e9c0
 
       - name: cdio
         config-opts:
