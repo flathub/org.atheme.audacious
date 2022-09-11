@@ -100,8 +100,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/notroj/neon.git
-            tag: 0.32.1
-            commit: 0a02e288f501d65be6746cfb023f0ee8ff9869fb
+            tag: 0.32.4
+            commit: f52d2c9d1fd3bb9527562930856e4d1de91f2267
             x-checker-data:
               type: git
               url: https://github.com/notroj/neon.git
