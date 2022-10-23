@@ -1,14 +1,14 @@
 id: org.atheme.audacious
 runtime: org.kde.Platform
-runtime-version: '5.15'
+runtime-version: 5.15-22.08
 sdk: org.kde.Sdk
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
-    add-ld-path: "."
+    add-ld-path: .
     autodelete: false
     autodownload: true
     directory: lib/ffmpeg
-    version: "20.08"
+    version: "22.08"
 
   org.atheme.audacious.plugins:
     directory: plugins
@@ -53,21 +53,31 @@ cleanup:
   - /share/man
 modules:
   - name: audacious
+    buildsystem: meson
     config-opts:
-      - --with-buildstamp=Flathub package
-      # - --enable-gtk
+      - -D=buildstamp=Flathub package
     post-install:
-      - install -D -m644 contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - install -Dpm644 ../contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
-        url: https://github.com/audacious-media-player/audacious
-        tag: audacious-4.0.5
-        commit: f2359456253d34f54c54756bcac2146975086423
-      - type: patch
-        path: appdata.patch
+        url: https://github.com/audacious-media-player/audacious.git
+        tag: audacious-4.2
+        commit: 73a881fb59bb27f60654b63a95d8c3de73a026ae
+        x-checker-data:
+          type: git
+          url: https://github.com/audacious-media-player/audacious.git
+          tag-pattern: ^(audacious-[\d.]+)$
+    modules:
+      - shared-modules/gtk2/gtk2.json
 
   - name: audacious-plugins
     buildsystem: meson
+    build-options:
+      arch:
+        aarch64:
+          config-opts:
+            - -Dgl-spectrum=false
+
     # config-opts:
     #  - -D=adplug=false
     #  - -D=cdaudio=false
@@ -78,9 +88,13 @@ modules:
     #  - -D=notify=false
     sources:
       - type: git
-        url: https://github.com/audacious-media-player/audacious-plugins
-        tag: audacious-plugins-4.0.5
-        commit: f456ea04cde09724cfed9fc3a25b872ebcce95fd
+        url: https://github.com/audacious-media-player/audacious-plugins.git
+        tag: audacious-plugins-4.2
+        commit: 927c213260c19dad1a96f7170ea910acb79d4ad3
+        x-checker-data:
+          type: git
+          url: https://github.com/audacious-media-player/audacious-plugins.git
+          tag-pattern: ^(audacious-plugins-[\d.]+)$
 
     modules:
       - name: libnotify
@@ -99,11 +113,15 @@ modules:
           - --enable-shared
         sources:
           - type: git
-            url: https://github.com/notroj/neon
-            tag: 0.31.2
-            commit: a103e89dbee535eafe40324133149f314c0f77a8
+            url: https://github.com/notroj/neon.git
+            tag: 0.32.1
+            commit: 0a02e288f501d65be6746cfb023f0ee8ff9869fb
+            # x-checker-data:
+            #   type: git
+            #   url: https://github.com/notroj/neon.git
+            #   tag-pattern: ^([\d.]+)$
           - type: patch
-            path: remove-hardcoded-install-paths.patch
+            path: patches/neon:remove-hardcoded-install-paths.patch
 
       - name: cue
         buildsystem: cmake-ninja
@@ -114,12 +132,20 @@ modules:
             url: https://github.com/lipnitsk/libcue
             tag: v2.2.1
             commit: 1b0f3917b8f908c81bb646ce42f29cf7c86443a1
+            x-checker-data:
+              type: json
+              url: https://api.github.com/repos/lipnitsk/libcue/releases/latest
+              tag-query: .tag_name
+              timestamp-query: .published_at
 
       - name: faad
         sources:
           - type: git
             url: https://github.com/gypified/libfaad
             commit: 200ac175e58e5703385d6c9c104d54c9247d8a67
+          - type: shell
+            commands:
+              - cp -p /usr/share/automake-*/config.{sub,guess} .
 
       - name: cddb
         config-opts:
@@ -128,23 +154,19 @@ modules:
           - type: archive
             url: https://prdownloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
             sha256: 35ce0ee1741ea38def304ddfe84a958901413aa829698357f0bee5bb8f0a223b
+          - type: shell
+            commands:
+              - cp -p /usr/share/automake-*/config.{sub,guess} .
 
-      - name: fluidsynth
-        buildsystem: cmake-ninja
-        config-opts:
-          - -DLIB_SUFFIX=
-        sources:
-          - type: archive
-            url: https://github.com/FluidSynth/fluidsynth/archive/v2.1.5.tar.gz
-            sha256: b539b7c65a650b56f01cd60a4e83c6125c217c5a63c0c214ef6274894a677d00
+      - shared-modules/linux-audio/fluidsynth2.json
 
       - name: sidplayfp
         config-opts:
           - --disable-static
         sources:
           - type: archive
-            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.0/libsidplayfp-2.0.4.tar.gz
-            sha256: 1fd66ac1178fe39e6a562b4d35cb592236096fcb349f21c58216565b3f330635
+            url: https://downloads.sourceforge.net/project/sidplay-residfp/libsidplayfp/2.3/libsidplayfp-2.3.1.tar.gz
+            sha256: aef70cc30648eb89d32f56c691a5a40cdffc7421f43b4aa242f4d123eb9258a2
 
       - name: modplug
         config-opts:
@@ -161,8 +183,8 @@ modules:
           - --without-portaudiocpp
         sources:
           - type: archive
-            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.3+release.autotools.tar.gz
-            sha256: e7282a50e17d3d4c4a6d8000d409f6234f468f8113fcb33ee4ed945d9c2f25b8
+            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.6.6+release.autotools.tar.gz
+            sha256: 6ddb9e26a430620944891796fefb1bbb38bd9148f6cfc558810c0d3f269876c7
 
       - name: cdio
         config-opts:
@@ -170,8 +192,8 @@ modules:
           - --without-cdda-player
         sources:
           - type: archive
-            url: https://ftp.gnu.org/gnu/libcdio/libcdio-2.0.0.tar.gz
-            sha256: 1b481b5da009bea31db875805665974e2fc568e2b2afa516f4036733657cf958
+            url: https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
+            sha256: 8550e9589dbd594bfac93b81ecf129b1dc9d0d51e90f9696f1b2f9b2af32712b
 
       - name: cdio-paranoia
         config-opts:
@@ -181,12 +203,43 @@ modules:
             url: https://github.com/rocky/libcdio-paranoia
             tag: release-10.2+2.0.1
             commit: db4dfff9e11c516ae35d87e568f511002ddae9d7
+            x-checker-data:
+              type: json
+              url: https://api.github.com/repos/rocky/libcdio-paranoia/releases/latest
+              tag-query: .tag_name
+              timestamp-query: .published_at
 
       - name: mms
         sources:
           - type: archive
             url: https://sourceforge.net/projects/libmms/files/libmms/0.6.4/libmms-0.6.4.tar.gz
             sha256: 3c05e05aebcbfcc044d9e8c2d4646cd8359be39a3f0ba8ce4e72a9094bee704f
+
+      - name: ampache_browser
+        buildsystem: cmake-ninja
+        sources:
+          - type: git
+            url: https://github.com/ampache-browser/ampache_browser.git
+            tag: v1.0.4
+            commit: 1f0850fe42dc8967d00eb4a74a45ba72f1faba33
+            x-checker-data:
+              type: json
+              url: https://api.github.com/repos/ampache-browser/ampache_browser/releases/latest
+              tag-query: .tag_name
+              timestamp-query: .published_at
+
+      - name: soxr
+        buildsystem: cmake-ninja
+        sources:
+          - type: archive
+            url: http://downloads.sourceforge.net/soxr/soxr-0.1.3-Source.tar.xz
+            sha256: b111c15fdc8c029989330ff559184198c161100a59312f5dc19ddeb9b5a15889
+
+      - name: libbs2b
+        sources:
+          - type: git
+            url: https://github.com/alexmarsev/libbs2b
+            commit: 5ca2d59888df047f1e4b028e3a2fd5be8b5a7277
 
       - name: adplug
         config-opts:
@@ -196,6 +249,11 @@ modules:
             url: https://github.com/adplug/adplug
             tag: adplug-2.3.3
             commit: 37f287dc9d81cd6aaab61f48da5cacc0ab39130e
+            x-checker-data:
+              type: json
+              url: https://api.github.com/repos/adplug/adplug/releases/latest
+              tag-query: .tag_name
+              timestamp-query: .published_at
           - type: script
             commands:
               - autoreconf --install
@@ -211,6 +269,11 @@ modules:
                 url: https://github.com/adplug/libbinio
                 tag: libbinio-1.5
                 commit: 020a4c2b7612863600428e0e9f2491b923e54ac2
+                x-checker-data:
+                  type: json
+                  url: https://api.github.com/repos/adplug/libbinio/releases/latest
+                  tag-query: .tag_name
+                  timestamp-query: .published_at
               - type: script
                 commands:
                   - autoreconf --install
