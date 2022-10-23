@@ -1,0 +1,45 @@
+--- a/Makefile.in	2021-09-20 22:17:44.000000000 +0300
++++ b/Makefile.in	2021-10-01 00:46:29.361325664 +0300
+@@ -126,22 +126,6 @@
+ neon-config: $(srcdir)/neon-config.in
+ 	@./config.status neon-config
+ 
+-install-docs: install-man install-html
+-
+-install-html: docs-html
+-	$(INSTALL) -d $(DESTDIR)$(docdir)/html
+-	for d in doc/html/*.html; do \
+-		$(INSTALL_DATA) $$d $(DESTDIR)$(docdir)/html; \
+-	done
+-
+-install-man: docs-man
+-	$(INSTALL) -d $(DESTDIR)$(man3dir)
+-	$(INSTALL) -d $(DESTDIR)$(man1dir)
+-	for m in doc/man/*.3; do \
+-	 $(INSTALL_DATA) $$m $(DESTDIR)$(man3dir); done
+-	for m in doc/man/*.1; do \
+-	 $(INSTALL_DATA) $$m $(DESTDIR)$(man1dir); done
+-
+ install: install-@ALLOW_INSTALL@
+ 
+ install-memleak:
+@@ -149,7 +133,7 @@
+ 	@echo "ERROR: purposes only; this copy of neon must not be installed."
+ 	@false
+ 
+-install-yes: install-lib install-headers install-config install-docs install-nls
++install-yes: install-lib install-headers install-config install-nls
+ 
+ # libtool does all the necessary magic here
+ install-lib: subdirs
+@@ -182,10 +166,6 @@
+ 	@echo NLS not enabled.
+ 
+ install-nls-yes:
+-	@for f in $(LINGUAS); do \
+-	 $(INSTALL) -d $(DESTDIR)$(localedir)/$$f/LC_MESSAGES; \
+-	 $(INSTALL_DATA) $(srcdir)/po/$$f.gmo $(DESTDIR)$(localedir)/$$f/LC_MESSAGES/neon.mo; \
+-	done
+ 
+ ChangeLog:
+ 	svn log > $@
