@@ -31,12 +31,17 @@ cleanup:
   - '*.a'
   - '*.la'
   - /include
+  - /lib/cmake
   - /lib/girepository-1.0
   - /lib/pkgconfig
+  - /man
+  - /share/aclocal
   - /share/doc
   - /share/gir-1.0
+  - /share/gtk-doc
   - /share/info
   - /share/man
+  - /share/pkgconfig
 modules:
   - name: audacious
     buildsystem: meson
