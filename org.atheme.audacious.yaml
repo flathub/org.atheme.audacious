@@ -18,6 +18,7 @@ finish-args:
   - --filesystem=/run/media
   - --filesystem=xdg-download
   - --filesystem=xdg-music
+  - --filesystem=xdg-run/pipewire-0
   - --own-name=org.mpris.MediaPlayer2.audacious
   - --share=ipc
   - --share=network
