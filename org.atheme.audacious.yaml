@@ -48,6 +48,7 @@ modules:
     buildsystem: meson
     config-opts:
       - -D=buildstamp=Flathub package
+      - -D=gtk3=true
     post-install:
       - install -Dpm644 ../contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
@@ -59,8 +60,6 @@ modules:
           type: git
           url: https://github.com/audacious-media-player/audacious.git
           tag-pattern: ^(audacious-[\d.]+)$
-    modules:
-      - shared-modules/gtk2/gtk2.json
 
   - name: audacious-plugins
     buildsystem: meson
@@ -69,8 +68,8 @@ modules:
         aarch64:
           config-opts:
             - -Dgl-spectrum=false
-
-    # config-opts:
+    config-opts:
+      - -D=gtk3=true
     #  - -D=adplug=false
     #  - -D=cdaudio=false
     #  - -D=cue=false
