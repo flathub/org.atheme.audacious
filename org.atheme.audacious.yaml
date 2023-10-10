@@ -121,8 +121,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/lipnitsk/libcue
-            tag: v2.2.1
-            commit: 1b0f3917b8f908c81bb646ce42f29cf7c86443a1
+            tag: v2.3.0
+            commit: cfb98a060fd79dbc3463d85f0f29c3c335dfa0ea
             x-checker-data:
               type: json
               url: https://api.github.com/repos/lipnitsk/libcue/releases/latest
@@ -211,8 +211,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/ampache-browser/ampache_browser.git
-            tag: v1.0.5
-            commit: a37aac26784a3e97422c318697a82920b1072e44
+            tag: v1.0.6
+            commit: 381a5bd32e2384dce4bb53d9c173f4dc899c590e
             x-checker-data:
               type: json
               url: https://api.github.com/repos/ampache-browser/ampache_browser/releases/latest
