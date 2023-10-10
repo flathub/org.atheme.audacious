@@ -208,6 +208,8 @@ modules:
 
       - name: ampache_browser
         buildsystem: cmake-ninja
+        config-opts:
+          - -D USE_QT6=OFF
         sources:
           - type: git
             url: https://github.com/ampache-browser/ampache_browser.git
