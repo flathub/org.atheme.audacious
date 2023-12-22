@@ -8,7 +8,7 @@ add-extensions:
     autodelete: false
     autodownload: true
     directory: lib/ffmpeg
-    version: "23.08"
+    version: '23.08'
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 command: audacious
@@ -29,8 +29,8 @@ finish-args:
 rename-desktop-file: audacious.desktop
 rename-icon: audacious
 cleanup:
-  - "*.a"
-  - "*.la"
+  - '*.a'
+  - '*.la'
   - /include
   - /lib/cmake
   - /lib/girepository-1.0
@@ -260,8 +260,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/adplug/libbinio
-                tag: libbinio-1.5
-                commit: 020a4c2b7612863600428e0e9f2491b923e54ac2
+                tag: libbinio-1.4
+                commit: c7b2f8a7588657beed80674c95f3a84cc0cb83ca
                 x-checker-data:
                   type: json
                   url: https://api.github.com/repos/adplug/libbinio/releases/latest
