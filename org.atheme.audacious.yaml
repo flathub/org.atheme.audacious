@@ -8,7 +8,7 @@ add-extensions:
     autodelete: false
     autodownload: true
     directory: lib/ffmpeg
-    version: "23.08"
+    version: '23.08'
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 command: audacious
@@ -29,8 +29,8 @@ finish-args:
 rename-desktop-file: audacious.desktop
 rename-icon: audacious
 cleanup:
-  - "*.a"
-  - "*.la"
+  - '*.a'
+  - '*.la'
   - /include
   - /lib/cmake
   - /lib/girepository-1.0
@@ -213,8 +213,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/ampache-browser/ampache_browser.git
-            tag: v1.0.6
-            commit: 381a5bd32e2384dce4bb53d9c173f4dc899c590e
+            tag: v1.0.7
+            commit: 7504200a44bb9d54cfb8c5d220093785963416dd
             x-checker-data:
               type: json
               url: https://api.github.com/repos/ampache-browser/ampache_browser/releases/latest
