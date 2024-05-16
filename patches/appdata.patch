@@ -1,0 +1,10 @@
+--- a/contrib/audacious.appdata.xml	2024-05-16 21:08:19.938663631 +0100
++++ b/contrib/audacious.appdata.xml	2024-05-16 21:12:27.658993912 +0100
+@@ -6,6 +6,7 @@
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>BSD-2-Clause</project_license>
+   <name>Audacious</name>
++  <developer_name>Audacious developers</developer_name>
+   <summary>Lightweight audio player</summary>
+   <description>
+     <p>

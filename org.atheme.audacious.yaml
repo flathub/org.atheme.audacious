@@ -60,6 +60,8 @@ modules:
           type: git
           url: https://github.com/audacious-media-player/audacious.git
           tag-pattern: ^(audacious-[\d.]+)$
+      - type: patch
+        path: patches/appdata.patch
 
   - name: audacious-plugins
     buildsystem: meson
