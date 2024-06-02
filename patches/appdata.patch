@@ -1,11 +1,10 @@
 --- a/contrib/audacious.appdata.xml	2024-05-16 21:08:19.938663631 +0100
 +++ b/contrib/audacious.appdata.xml	2024-05-16 21:12:27.658993912 +0100
-@@ -1,11 +1,12 @@
+@@ -1,10 +1,12 @@
  <?xml version="1.0" encoding="UTF-8"?>
  <!-- Copyright 2015-2023 Audacious developers -->
  <component type="desktop">
 -  <id>audacious.desktop</id>
--  <launchable type="desktop-id">audacious.desktop</launchable>
 +  <id>org.atheme.audacious</id>
 +  <launchable type="desktop-id">org.atheme.audacious.desktop</launchable>
    <metadata_license>CC0-1.0</metadata_license>
@@ -15,28 +14,38 @@
    <summary>Lightweight audio player</summary>
    <description>
      <p>
-@@ -45,20 +46,20 @@
+@@ -23,6 +25,7 @@
+     </p>
+   </description>
+   <url type="homepage">https://audacious-media-player.org</url>
++  <url type="bugtracker">https://github.com/audacious-media-player/audacious/issues</url>
+   <releases>
+     <release date="2023-04-29" version="4.3.1"></release>
+     <release date="2023-03-05" version="4.3"></release>
+@@ -42,10 +45,22 @@
+     <release date="2016-09-22" version="3.8"></release>
    </releases>
    <screenshots>
-     <screenshot type="default">
-+      <image type="source">https://audacious-media-player.org/images/qt-interface.png</image>
-       <caption>Qt interface</caption>
--      <image>https://audacious-media-player.org/images/qt-interface.png</image>
-     </screenshot>
-     <screenshot>
-+      <image type="source">https://audacious-media-player.org/images/gtk-interface.png</image>
-       <caption>GTK interface</caption>
--      <image>https://audacious-media-player.org/images/gtk-interface.png</image>
-     </screenshot>
-     <screenshot>
-+      <image type="source">https://audacious-media-player.org/images/winamp-interface.png</image>
-       <caption>Winamp interface</caption>
--      <image>https://audacious-media-player.org/images/winamp-interface.png</image>
-     </screenshot>
-     <screenshot>
-+      <image type="source">https://audacious-media-player.org/images/settings-window.png</image>
-       <caption>Settings window</caption>
--      <image>https://audacious-media-player.org/images/settings-window.png</image>
-     </screenshot>
+-    <screenshot type="default">https://audacious-media-player.org/images/qt-interface.png</screenshot>
+-    <screenshot>https://audacious-media-player.org/images/gtk-interface.png</screenshot>
+-    <screenshot>https://audacious-media-player.org/images/winamp-interface.png</screenshot>
+-    <screenshot>https://audacious-media-player.org/images/settings-window.png</screenshot>
++    <screenshot type="default">
++      <caption>Qt interface</caption>
++      <image>https://audacious-media-player.org/images/qt-interface.png</image>
++    </screenshot>
++    <screenshot>
++      <caption>GTK interface</caption>
++      <image>https://audacious-media-player.org/images/gtk-interface.png</image>
++    </screenshot>
++    <screenshot>
++      <caption>Winamp interface</caption>
++      <image>https://audacious-media-player.org/images/winamp-interface.png</image>
++    </screenshot>
++    <screenshot>
++      <caption>Settings window</caption>
++      <image>https://audacious-media-player.org/images/settings-window.png</image>
++    </screenshot>
    </screenshots>
    <content_rating type="oars-1.1" />
+ </component>
