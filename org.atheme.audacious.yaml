@@ -26,6 +26,7 @@ finish-args:
   - --socket=wayland
   - --socket=x11
   - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
 rename-desktop-file: audacious.desktop
 rename-icon: audacious
 cleanup:
