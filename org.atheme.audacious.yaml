@@ -49,8 +49,9 @@ modules:
     config-opts:
       - -D=buildstamp=Flathub package
       - -D=gtk3=true
-    post-install:
-      - install -Dpm644 ../contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
+    ## Revert with next upstream new release
+    # post-install:
+    #   - install -Dpm644 ../contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious.git
@@ -60,6 +61,17 @@ modules:
           type: git
           url: https://github.com/audacious-media-player/audacious.git
           tag-pattern: ^(audacious-[\d.]+)$
+
+  - name: audacious-appdata
+    buildsystem: simple
+    build-commands:
+      - install -Dpm644 audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
+    sources:
+      - type: file
+        # Latest upstream AppData from master
+        #   - https://raw.githubusercontent.com/audacious-media-player/audacious/master/contrib/audacious.appdata.xml
+        #   - https://github.com/audacious-media-player/audacious/pull/1405
+        path: patches/audacious.appdata.xml
 
   - name: audacious-plugins
     buildsystem: meson
