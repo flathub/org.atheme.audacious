@@ -22,9 +22,10 @@ finish-args:
   - --own-name=org.mpris.MediaPlayer2.audacious
   - --share=ipc
   - --share=network
-  - --socket=pulseaudio
   - --socket=fallback-x11
+  - --socket=pulseaudio
   - --socket=wayland
+  - --system-talk-name=org.freedesktop.UDisks2
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
 rename-desktop-file: audacious.desktop
