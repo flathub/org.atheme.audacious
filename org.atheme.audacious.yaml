@@ -56,8 +56,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious.git
-        tag: audacious-4.4
-        commit: 9777eefed6d0e32762c74e27743b8ee9b374cc5e
+        tag: audacious-4.4.2
+        commit: 76fde78f91e475111f211b6303f80d216a2ec37a
         x-checker-data:
           type: git
           url: https://github.com/audacious-media-player/audacious.git
@@ -82,8 +82,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious-plugins.git
-        tag: audacious-plugins-4.4
-        commit: b29776eee25e2365933e7e854fb802a9eeeeb8e4
+        tag: audacious-plugins-4.4.2
+        commit: f6ff6b29a68582e629ac34b61405ee5e0a13efcc
         x-checker-data:
           type: git
           url: https://github.com/audacious-media-player/audacious-plugins.git
