@@ -250,8 +250,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/adplug/adplug
-            tag: adplug-2.3.3
-            commit: 37f287dc9d81cd6aaab61f48da5cacc0ab39130e
+            tag: adplug-2.4
+            commit: e491e382479ed2246f124c96c70d94561dce59b9
             x-checker-data:
               type: json
               url: https://api.github.com/repos/adplug/adplug/releases/latest
