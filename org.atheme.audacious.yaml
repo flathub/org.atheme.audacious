@@ -1,6 +1,6 @@
 id: org.atheme.audacious
 runtime: org.kde.Platform
-runtime-version: '6.8'
+runtime-version: '6.9'
 sdk: org.kde.Sdk
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
