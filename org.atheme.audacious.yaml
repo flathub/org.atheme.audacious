@@ -150,11 +150,11 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.12.0/libsidplayfp-2.12.0.tar.gz
-            sha256: bc4f4fa203dcf0736fe48c23dce9aa0db825370e5941e7595e4851efe6937cdc
+            url: https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.15.0/libsidplayfp-2.15.0.tar.gz
+            sha256: 42c28b9ef57998ad66bbbb3dfab00c6684715c643d9ccc9ac8da4d7cf296dd00
             x-checker-data:
               type: anitya
-              id: 1721
+              project-id: 1721
               url-template: https://github.com/libsidplayfp/libsidplayfp/releases/download/v$version/libsidplayfp-$version.tar.gz
 
       - name: modplug
