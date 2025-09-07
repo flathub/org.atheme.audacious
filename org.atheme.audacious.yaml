@@ -56,8 +56,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious.git
-        tag: audacious-4.5
-        commit: 6277b6532e816c37230881ffea8faf86eb7c982c
+        tag: audacious-4.5.1
+        commit: 354946d0fe96d9a477f1b0c76a374667a155d1af
         x-checker-data:
           type: git
           url: https://github.com/audacious-media-player/audacious.git
@@ -82,8 +82,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious-plugins.git
-        tag: audacious-plugins-4.5
-        commit: 3955410f85ba0894d77511b60271cdd840450fac
+        tag: audacious-plugins-4.5.1
+        commit: bc68ac4d54d1c9d8b71bd083459a26ac8b9392a6
         x-checker-data:
           type: git
           url: https://github.com/audacious-media-player/audacious-plugins.git
@@ -172,8 +172,8 @@ modules:
           - --without-portaudiocpp
         sources:
           - type: archive
-            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.2+release.autotools.tar.gz
-            sha256: 844e4ff98dbd9942bbe4a1048226f91f8bc5b460b7bec6489e67cedb3e0aac37
+            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.3+release.autotools.tar.gz
+            sha256: 25d486a4da9728819274ed0959fd79a1c6358954710d54c14047c6457c8ca8ac
             x-checker-data:
               type: anitya
               project-id: 141468
