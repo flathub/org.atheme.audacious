@@ -19,6 +19,7 @@ finish-args:
   - --filesystem=xdg-download
   - --filesystem=xdg-music
   - --filesystem=xdg-run/pipewire-0
+  # Required to put album covers into /tmp for MPRIS to pick them up
   - --filesystem=/tmp
   - --own-name=org.mpris.MediaPlayer2.audacious
   - --share=ipc
