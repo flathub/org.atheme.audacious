@@ -150,8 +150,8 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.15.1/libsidplayfp-2.15.1.tar.gz
-            sha256: 499201cc87bd6dacfd4480834c6ff0171264a22a436906d0a8bafc009db0b75c
+            url: https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.15.2/libsidplayfp-2.15.2.tar.gz
+            sha256: 7c6ab283fda53d34973fa266fc3809e16964dd8ccb7edcc11516ef5e3f66b3cd
             x-checker-data:
               type: anitya
               project-id: 1721
@@ -192,8 +192,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/libcdio/libcdio.git
-            tag: 2.2.0
-            commit: 3922b045fa3dfa7c8e062641ac619a344e23c0a9
+            tag: 2.2.1.rc1
+            commit: 8debafb86b3a5c966969340dc870b9c60ec2a920
             x-checker-data:
               type: git
               tag-pattern: ([\d.]+)
