@@ -184,8 +184,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/libcdio/libcdio.git
-            tag: 2.3.0.rc1
-            commit: e665c78eaa8c4f27d3e9f9b1ac6f03ea6fe6fb90
+            tag: 2.3.0
+            commit: 02bdae68579e5474b0441dbf34d49354ddc3e83f
             x-checker-data:
               type: git
               tag-pattern: ([\d.]+)
