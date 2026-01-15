@@ -1,16 +1,7 @@
 id: org.atheme.audacious
 runtime: org.kde.Platform
-runtime-version: '6.9'
+runtime-version: '6.10'
 sdk: org.kde.Sdk
-add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    add-ld-path: .
-    autodelete: false
-    autodownload: true
-    directory: lib/ffmpeg
-    version: '24.08'
-cleanup-commands:
-  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 command: audacious
 finish-args:
   - --device=dri
@@ -31,8 +22,6 @@ finish-args:
 rename-desktop-file: audacious.desktop
 rename-icon: audacious
 cleanup:
-  - '*.a'
-  - '*.la'
   - /include
   - /lib/cmake
   - /lib/girepository-1.0
@@ -45,6 +34,8 @@ cleanup:
   - /share/info
   - /share/man
   - /share/pkgconfig
+  - '*.a'
+  - '*.la'
 modules:
   - name: audacious
     buildsystem: meson
@@ -110,6 +101,7 @@ modules:
         buildsystem: cmake-ninja
         config-opts:
           - -DBUILD_SHARED_LIBS:BOOL=ON
+          - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
         sources:
           - type: git
             url: https://github.com/lipnitsk/libcue
@@ -150,8 +142,8 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.15.1/libsidplayfp-2.15.1.tar.gz
-            sha256: 499201cc87bd6dacfd4480834c6ff0171264a22a436906d0a8bafc009db0b75c
+            url: https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.16.0/libsidplayfp-2.16.0.tar.gz
+            sha256: 81bfd58ccaa3a0ef28c903b841b4fa3014811901fd12fbb9a80b7b5d5ec2b151
             x-checker-data:
               type: anitya
               project-id: 1721
@@ -233,6 +225,8 @@ modules:
 
       - name: soxr
         buildsystem: cmake-ninja
+        config-opts:
+          - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
         sources:
           - type: archive
             url: http://downloads.sourceforge.net/soxr/soxr-0.1.3-Source.tar.xz
