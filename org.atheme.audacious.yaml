@@ -144,10 +144,11 @@ modules:
           - type: archive
             url: https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.16.0/libsidplayfp-2.16.0.tar.gz
             sha256: 81bfd58ccaa3a0ef28c903b841b4fa3014811901fd12fbb9a80b7b5d5ec2b151
-            x-checker-data:
-              type: anitya
-              project-id: 1721
-              url-template: https://github.com/libsidplayfp/libsidplayfp/releases/download/v$version/libsidplayfp-$version.tar.gz
+            # Does not support version 3, therefore disabled
+            # x-checker-data:
+            #   type: anitya
+            #   project-id: 1721
+            #   url-template: https://github.com/libsidplayfp/libsidplayfp/releases/download/v$version/libsidplayfp-$version.tar.gz
 
       - name: modplug
         config-opts:
