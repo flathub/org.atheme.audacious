@@ -42,8 +42,6 @@ modules:
     config-opts:
       - -D=buildstamp=Flathub package
       - -D=gtk=true
-    post-install:
-      - install -Dpm644 ../contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious.git
