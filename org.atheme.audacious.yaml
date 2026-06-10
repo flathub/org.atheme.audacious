@@ -4,6 +4,7 @@ runtime-version: '6.10'
 sdk: org.kde.Sdk
 command: audacious
 rename-desktop-file: audacious.desktop
+rename-appdata-file: audacious.metainfo.xml
 rename-icon: audacious
 finish-args:
   - --device=dri
@@ -42,13 +43,11 @@ modules:
     config-opts:
       - -D=buildstamp=Flathub package
       - -D=gtk=true
-    post-install:
-      - install -Dpm644 ../contrib/audacious.appdata.xml /app/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious.git
-        tag: audacious-4.5.1
-        commit: 354946d0fe96d9a477f1b0c76a374667a155d1af
+        tag: audacious-4.6.1
+        commit: 17b29a330a106033ae96d57ce52f2c900e07addd
         x-checker-data:
           type: git
           url: https://github.com/audacious-media-player/audacious.git
@@ -73,8 +72,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious-plugins.git
-        tag: audacious-plugins-4.5.1
-        commit: bc68ac4d54d1c9d8b71bd083459a26ac8b9392a6
+        tag: audacious-plugins-4.6.1
+        commit: a7f3a1d1ad564b764137a3583cdff440d0230762
         x-checker-data:
           type: git
           url: https://github.com/audacious-media-player/audacious-plugins.git
