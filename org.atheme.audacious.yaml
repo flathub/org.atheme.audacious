@@ -251,9 +251,9 @@ modules:
               tag-query: .tag_name
               timestamp-query: .published_at
           - type: script
+            dest-filename: autogen.sh
             commands:
               - autoreconf --install
-            dest-filename: autogen.sh
 
         modules:
           - name: binio
@@ -271,6 +271,6 @@ modules:
                   tag-query: .tag_name
                   timestamp-query: .published_at
               - type: script
+                dest-filename: autogen.sh
                 commands:
                   - autoreconf --install
-                dest-filename: autogen.sh
