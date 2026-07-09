@@ -214,8 +214,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/ampache-browser/ampache_browser.git
-            tag: v1.0.8
-            commit: e539cfdc50486e25e65b7f4ed9a370e9ce3fe223
+            tag: v1.0.9
+            commit: a44426ec7209f1b49cdd10c75965a41f79cb5b06
             x-checker-data:
               type: json
               url: https://api.github.com/repos/ampache-browser/ampache_browser/releases/latest
