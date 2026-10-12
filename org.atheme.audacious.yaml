@@ -1,6 +1,6 @@
 id: org.atheme.audacious
 runtime: org.kde.Platform
-runtime-version: '6.10'
+runtime-version: '6.11'
 sdk: org.kde.Sdk
 command: audacious
 rename-desktop-file: audacious.desktop
@@ -49,6 +49,7 @@ modules:
         tag: audacious-4.6.1
         commit: 17b29a330a106033ae96d57ce52f2c900e07addd
         x-checker-data:
+          is-main-source: true
           type: git
           url: https://github.com/audacious-media-player/audacious.git
           tag-pattern: ^(audacious-[\d.]+)$
@@ -141,13 +142,15 @@ modules:
           - --disable-static
         sources:
           - type: archive
-            url: https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.16.0/libsidplayfp-2.16.0.tar.gz
-            sha256: 81bfd58ccaa3a0ef28c903b841b4fa3014811901fd12fbb9a80b7b5d5ec2b151
-            # Does not support version 3, therefore disabled
-            # x-checker-data:
-            #   type: anitya
-            #   project-id: 1721
-            #   url-template: https://github.com/libsidplayfp/libsidplayfp/releases/download/v$version/libsidplayfp-$version.tar.gz
+            url: https://github.com/libsidplayfp/libsidplayfp/releases/download/v2.16.1/libsidplayfp-2.16.1.tar.gz
+            sha256: ace0f73c2ef8645ab069ce1b298b10e31e36af7b5996109983b2b67ad60ff3ca
+            # Does not support version 3, therefore version restricted
+            x-checker-data:
+              type: anitya
+              project-id: 1721
+              versions:
+                - <: '3'
+              url-template: https://github.com/libsidplayfp/libsidplayfp/releases/download/v$version/libsidplayfp-$version.tar.gz
 
       - name: modplug
         config-opts:
@@ -164,8 +167,8 @@ modules:
           - --without-portaudiocpp
         sources:
           - type: archive
-            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.7+release.autotools.tar.gz
-            sha256: 275c29ef47be9992f62a35fcc96f7ca05c06d2fd05c9298b8dee9f743f75b089
+            url: https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.9+release.autotools.tar.gz
+            sha256: d7ce84fd05d686c4bcf66af40eae857afa371442db60eeda3f874bd6cf6fc318
             x-checker-data:
               type: anitya
               project-id: 141468
@@ -184,8 +187,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/libcdio/libcdio.git
-            tag: 2.3.0
-            commit: 02bdae68579e5474b0441dbf34d49354ddc3e83f
+            tag: 2.4.0
+            commit: ee2f9e380e346d7a9c46ad71105353940101992a
             x-checker-data:
               type: git
 
@@ -214,8 +217,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/ampache-browser/ampache_browser.git
-            tag: v1.0.8
-            commit: e539cfdc50486e25e65b7f4ed9a370e9ce3fe223
+            tag: v1.0.9
+            commit: a44426ec7209f1b49cdd10c75965a41f79cb5b06
             x-checker-data:
               type: json
               url: https://api.github.com/repos/ampache-browser/ampache_browser/releases/latest
