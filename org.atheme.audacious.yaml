@@ -46,8 +46,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious.git
-        tag: audacious-4.6.1
-        commit: 17b29a330a106033ae96d57ce52f2c900e07addd
+        tag: audacious-4.6.2
+        commit: 929e89da11e0b71062d8ed7af41f58605008ce52
         x-checker-data:
           is-main-source: true
           type: git
@@ -73,8 +73,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/audacious-media-player/audacious-plugins.git
-        tag: audacious-plugins-4.6.1
-        commit: a7f3a1d1ad564b764137a3583cdff440d0230762
+        tag: audacious-plugins-4.6.2
+        commit: 419f26c28cdf430f4af2d9f659befcc3474aeae5
         x-checker-data:
           type: git
           url: https://github.com/audacious-media-player/audacious-plugins.git
@@ -148,8 +148,7 @@ modules:
             x-checker-data:
               type: anitya
               project-id: 1721
-              versions:
-                - <: '3'
+              versions: {'<': '3'}
               url-template: https://github.com/libsidplayfp/libsidplayfp/releases/download/v$version/libsidplayfp-$version.tar.gz
 
       - name: modplug
