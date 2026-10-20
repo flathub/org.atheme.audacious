@@ -16,8 +16,10 @@ finish-args:
   - --own-name=org.mpris.MediaPlayer2.audacious
   - --share=ipc
   - --share=network
-  - --socket=fallback-x11
   - --socket=pulseaudio
+  # Use x11 + wayland sockets to allow Winamp Classic Skins to work.
+  # See: https://github.com/flathub/org.atheme.audacious/issues/82s
+  - --socket=x11
   - --socket=wayland
   - --system-talk-name=org.freedesktop.UDisks2
   - --talk-name=org.freedesktop.Notifications
